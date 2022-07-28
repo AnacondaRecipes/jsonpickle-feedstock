@@ -30,8 +30,12 @@ requirements:
     - importlib_metadata  # [py<38]
 
 test:
+  requires:
+    - pip
   imports:
     - jsonpickle
+  commands:
+    - pip check
 
 about:
   home: http://jsonpickle.github.io/
