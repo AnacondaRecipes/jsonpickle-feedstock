@@ -38,7 +38,7 @@ test:
     - pip check
 
 about:
-  home: http://jsonpickle.github.io/
+  home: https://jsonpickle.github.io/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
