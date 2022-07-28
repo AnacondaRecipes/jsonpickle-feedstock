@@ -1,6 +1,6 @@
 {% set name = "jsonpickle" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "0be49cba80ea6f87a168aa8168d717d00c6ca07ba83df3cec32d3b30bfe6fb9a" %}
+{% set version = "2.2.0" %}
+{% set sha256 = "7b272918b0554182e53dc340ddd62d9b7f902fec7e7b05620c04f3ccef479a0e" %}
 
 package:
   name: {{ name|lower }}
@@ -12,33 +12,39 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  noarch: python
+  # noarch: python
+  skip: true  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - pip
+    - wheel
     - python
-    - setuptools
-    - setuptools_scm
+    - setuptools >=42
+    - setuptools_scm >=3.4.1
     - toml
   run:
     - python
-    - importlib_metadata
+    - importlib_metadata  # [py<38]
 
 test:
   imports:
     - jsonpickle
 
 about:
-  summary: Python library for serializing any arbitrary object graph into JSON. It can take almost any Python object and turn the object into JSON. Additionally,
-    it can reconstitute the object back into Python.
   home: http://jsonpickle.github.io/
-  dev_url: https://github.com/jsonpickle/jsonpickle
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
+  summary: Python library for serializing any arbitrary object graph into JSON
+  description: |
+    jsonpickle is a library for the two-way conversion of complex Python
+    objects and JSON. jsonpickle builds upon the existing JSON encoders,
+    such as simplejson, json, and ujson.
+  dev_url: https://github.com/jsonpickle/jsonpickle
+  doc_url: https://github.com/jsonpickle/jsonpickle/blob/main/README.rst
 
 extra:
   recipe-maintainers:
