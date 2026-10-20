@@ -1,5 +1,5 @@
 {% set name = "jsonpickle" %}
-{% set version = "4.1.1" %}
+{% set version = "4.1.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f86e18f13e2b96c1c1eede0b7b90095bbb61d99fedc14813c44dc2f361dbbae1
+  sha256: 8adf24cca611809b55ff5ed2ace850e1a3e4370dad5d363df71569b8f46c9645
 
 build:
   skip: true  # [py<38]
